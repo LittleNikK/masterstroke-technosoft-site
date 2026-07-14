@@ -1,0 +1,44 @@
+import type { Metadata } from "next";
+import { Space_Grotesk, Manrope, Inter } from "next/font/google";
+import "./globals.css";
+
+const spaceGrotesk = Space_Grotesk({
+  variable: "--font-space-grotesk",
+  subsets: ["latin"],
+});
+
+const manrope = Manrope({
+  variable: "--font-manrope",
+  subsets: ["latin"],
+});
+
+const inter = Inter({
+  variable: "--font-inter",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+});
+
+export const metadata: Metadata = {
+  title: "Masterstroke Technosoft Pvt. Ltd.",
+  description: "Masterstroke Technosoft Pvt. Ltd.",
+  icons: {
+    icon: "/mst.png",
+    shortcut: "/mst.png",
+    apple: "/mst.png",
+  },
+};
+
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  return (
+    <html
+      lang="en"
+      className={`${spaceGrotesk.variable} ${manrope.variable} ${inter.variable} csstransforms3d h-full antialiased`}
+    >
+      <body className="min-h-full flex flex-col">{children}</body>
+    </html>
+  );
+}
